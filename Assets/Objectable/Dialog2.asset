@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8874284a5cf25af9b05fd7b27c18148, type: 3}
   m_Name: Dialog2
   m_EditorClassIdentifier: 
-  thoughtText: 
+  thoughtText: "D\u0130ALOG 2\n"

@@ -1,35 +1,40 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InkManager : MonoBehaviour
 {
     public static InkManager Instance;
+    public GameObject inkPanel;
+    public Slider breathSlider;
+    public bool isEventActive = false;
 
-    [Header("Mürekkep Prefabları")]
-    public GameObject dripPrefab; // Drip Prefab'ını buraya sürükle
-    public GameObject poolPrefab; // Pool Prefab'ını buraya sürükle
-
-    private GameObject activeDrip;
-    private GameObject activePool;
-
-    private void Awake() { Instance = this; }
-
-    public void StartInkEvent()
+    private void Awake() 
+{ 
+    Instance = this; 
+    
+    // Eğer panel atanmışsa kapat, atanmamışsa hata verme
+    if (inkPanel != null) 
     {
-        // Eğer zaten varsa önce onları temizle
-        if (activeDrip != null) Destroy(activeDrip);
-        if (activePool != null) Destroy(activePool);
+        inkPanel.SetActive(false); 
+    }
+    else 
+    {
+        Debug.LogWarning("Dikkat: InkManager'da Ink Panel referansı eksik!");
+    }
+}
 
-        // Prefabları sahnede oluştur (Spawn et)
-        activeDrip = Instantiate(dripPrefab, Vector3.zero, Quaternion.identity);
-        activePool = Instantiate(poolPrefab, Vector3.zero, Quaternion.identity);
-        
-        Debug.Log("Mürekkep efektleri spawn edildi!");
+    public void StartInkEvent() {
+        isEventActive = true;
+        inkPanel.SetActive(true);
+        breathSlider.value = 50f;
     }
 
-    public void InkCleared()
-    {
-        // Kriz bitince yok et
-        if (activeDrip != null) Destroy(activeDrip);
-        if (activePool != null) Destroy(activePool);
+    void Update() {
+        if (!isEventActive) return;
+        if (Input.GetKeyDown(KeyCode.Space)) breathSlider.value += 15f;
+        breathSlider.value -= 10f * Time.deltaTime;
+        if (breathSlider.value <= 0 || breathSlider.value >= 100) { isEventActive = false; inkPanel.SetActive(false); }
     }
+
+    public void InkCleared() { isEventActive = false; inkPanel.SetActive(false); }
 }

@@ -15,6 +15,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(DialogueNode node)
     {
+        if (node == null) return;
         dialoguePanel.SetActive(true);
         DisplayNode(node);
     }
@@ -24,26 +25,33 @@ public class DialogueManager : MonoBehaviour
         speakerNameText.text = node.speakerName;
         dialogueText.text = node.dialogueText;
 
-        for (int i = 0; i < choiceButtons.Length; i++)
-        {
-            choiceButtons[i].gameObject.SetActive(false);
-            choiceButtons[i].onClick.RemoveAllListeners();
-        }
+        foreach (Button b in choiceButtons) b.gameObject.SetActive(false);
 
         for (int i = 0; i < node.choices.Length; i++)
         {
-            int index = i;
+            if (i >= choiceButtons.Length) break;
             choiceButtons[i].gameObject.SetActive(true);
-            choiceTexts[i].text = node.choices[index].choiceText;
+            choiceTexts[i].text = node.choices[i].choiceText;
+            int index = i;
+            choiceButtons[i].onClick.RemoveAllListeners();
             choiceButtons[i].onClick.AddListener(() => OnChoiceSelected(node.choices[index]));
         }
     }
 
     private void OnChoiceSelected(DialogueChoice choice)
     {
-        if (choice.isFinalChoice) { EndingManager.Instance.TriggerEnding(choice.isLie); return; }
-        if (choice.isLie) QTEManager.Instance.StartQTE(choice.tensionIncreaseAmount);
-        if (choice.triggersInkEvent) InkManager.Instance.StartInkEvent();
+        if (choice.isFinalChoice) {
+            if (EndingManager.Instance != null) EndingManager.Instance.TriggerEnding(choice.isLie);
+            return;
+        }
+
+        if (choice.isLie) {
+            if (PinocchioQTE.Instance != null) PinocchioQTE.Instance.TriggerRandomEvent(choice.tensionIncreaseAmount);
+        }
+
+        if (choice.triggersInkEvent) {
+            if (InkManager.Instance != null) InkManager.Instance.StartInkEvent();
+        }
 
         if (choice.nextNode != null) DisplayNode(choice.nextNode);
         else dialoguePanel.SetActive(false);
