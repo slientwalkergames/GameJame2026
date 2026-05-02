@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c8874284a5cf25af9b05fd7b27c18148, type: 3}
-  m_Name: Dialog1
+  m_Name: Dialog6
   m_EditorClassIdentifier: 
-  thoughtText: "\"Bu h\xFCcre... Duvarlar\u0131 so\u011Fuk, havas\u0131 ise bayat
-    bir su\xE7luluk kokuyor. Ama kimin su\xE7u? Benim mi, yoksa beni buraya atanlar\u0131n
-    m\u0131? Hat\u0131rlayam\u0131yorum.\""
+  thoughtText: "\"Ad\u0131mlar yakla\u015F\u0131yor. Metalik, ritmik ve ac\u0131mas\u0131z.
+    \u015Eimdi maskemi takma vakti. E\u011Fer bu kap\u0131dan \xE7\u0131kacaksam,
+    \xF6nce kendime, sonra d\xFCnyaya en b\xFCy\xFCk yalan\u0131 s\xF6ylemeliyim.
+    Ve bu sefer... h\u0131\xE7k\u0131rmamal\u0131y\u0131m.\""

@@ -1,8 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TensionManager : MonoBehaviour
-{
+public class TensionManager : MonoBehaviour {
     public static TensionManager Instance;
     public Slider tensionSlider;
     public Image screenVignette;
@@ -11,19 +10,15 @@ public class TensionManager : MonoBehaviour
 
     private void Awake() { Instance = this; }
 
-    public void IncreaseTension(float amount)
-    {
+    public void IncreaseTension(float amount) {
         currentTension += amount;
         currentTension = Mathf.Clamp(currentTension, 0, maxTension);
-        
         if (tensionSlider != null) tensionSlider.value = currentTension / maxTension;
-        
         if (screenVignette != null) {
             Color c = screenVignette.color;
-            c.a = currentTension / maxTension; // Bar doldukça kenarlar kızarır
+            c.a = currentTension / maxTension;
             screenVignette.color = c;
         }
-
         if (currentTension >= maxTension) EndingManager.Instance.TriggerEnding(true);
     }
 }

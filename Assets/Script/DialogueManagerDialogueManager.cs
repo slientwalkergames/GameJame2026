@@ -2,8 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class DialogueManager : MonoBehaviour
-{
+public class DialogueManager : MonoBehaviour {
     public static DialogueManager Instance;
     public GameObject dialoguePanel;
     public TextMeshProUGUI speakerNameText;
@@ -11,25 +10,18 @@ public class DialogueManager : MonoBehaviour
     public Button[] choiceButtons;
     public TextMeshProUGUI[] choiceTexts;
 
-    private void Awake() { Instance = this; }
+    private void Awake() { Instance = this; if(dialoguePanel) dialoguePanel.SetActive(false); }
 
-    public void StartDialogue(DialogueNode node)
-    {
-        if (node == null) return;
-        dialoguePanel.SetActive(true);
+    public void StartDialogue(DialogueNode node) {
+        if(dialoguePanel) dialoguePanel.SetActive(true);
         DisplayNode(node);
     }
 
-    private void DisplayNode(DialogueNode node)
-    {
-        speakerNameText.text = node.speakerName;
-        dialogueText.text = node.dialogueText;
-
+    private void DisplayNode(DialogueNode node) {
+        if(speakerNameText) speakerNameText.text = node.speakerName;
+        if(dialogueText) dialogueText.text = node.dialogueText;
         foreach (Button b in choiceButtons) b.gameObject.SetActive(false);
-
-        for (int i = 0; i < node.choices.Length; i++)
-        {
-            if (i >= choiceButtons.Length) break;
+        for (int i = 0; i < node.choices.Length; i++) {
             choiceButtons[i].gameObject.SetActive(true);
             choiceTexts[i].text = node.choices[i].choiceText;
             int index = i;
@@ -38,22 +30,11 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    private void OnChoiceSelected(DialogueChoice choice)
-    {
-        if (choice.isFinalChoice) {
-            if (EndingManager.Instance != null) EndingManager.Instance.TriggerEnding(choice.isLie);
-            return;
-        }
-
-        if (choice.isLie) {
-            if (PinocchioQTE.Instance != null) PinocchioQTE.Instance.TriggerRandomEvent(choice.tensionIncreaseAmount);
-        }
-
-        if (choice.triggersInkEvent) {
-            if (InkManager.Instance != null) InkManager.Instance.StartInkEvent();
-        }
-
+    private void OnChoiceSelected(DialogueChoice choice) {
+        if (choice.isFinalChoice) { EndingManager.Instance.TriggerEnding(choice.isLie); return; }
+        if (choice.isLie) PinocchioQTE.Instance.TriggerRandomEvent(choice.tensionIncreaseAmount);
+        if (choice.triggersInkEvent) InkManager.Instance.StartInkEvent();
         if (choice.nextNode != null) DisplayNode(choice.nextNode);
-        else dialoguePanel.SetActive(false);
+        else if(dialoguePanel) dialoguePanel.SetActive(false);
     }
 }

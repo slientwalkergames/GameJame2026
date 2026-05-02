@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8874284a5cf25af9b05fd7b27c18148, type: 3}
   m_Name: Dialog2
   m_EditorClassIdentifier: 
-  thoughtText: "D\u0130ALOG 2\n"
+  thoughtText: "Zihnimdeki bo\u015Fluklar, bu demir parmakl\u0131klar kadar ger\xE7ek.
+    Ne yapt\u0131\u011F\u0131m\u0131 bilmiyorum ama bu sistemin beni neden yok etmek
+    istedi\u011Fini hissedebiliyorum. \xC7ok fazla \u015Fey biliyordum... ve muhtemelen
+    hala biliyorum.\""

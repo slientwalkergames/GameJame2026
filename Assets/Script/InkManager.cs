@@ -1,40 +1,34 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InkManager : MonoBehaviour
-{
+public class InkManager : MonoBehaviour {
     public static InkManager Instance;
     public GameObject inkPanel;
     public Slider breathSlider;
     public bool isEventActive = false;
 
-    private void Awake() 
-{ 
-    Instance = this; 
-    
-    // Eğer panel atanmışsa kapat, atanmamışsa hata verme
-    if (inkPanel != null) 
-    {
-        inkPanel.SetActive(false); 
+    private void Awake() { 
+        Instance = this; 
+        if (inkPanel != null) inkPanel.SetActive(false); 
     }
-    else 
-    {
-        Debug.LogWarning("Dikkat: InkManager'da Ink Panel referansı eksik!");
-    }
-}
 
     public void StartInkEvent() {
         isEventActive = true;
-        inkPanel.SetActive(true);
-        breathSlider.value = 50f;
+        if(inkPanel != null) inkPanel.SetActive(true);
+        if(breathSlider != null) breathSlider.value = 50f;
+    }
+
+    public void InkCleared() { 
+        isEventActive = false; 
+        if(inkPanel != null) inkPanel.SetActive(false); 
     }
 
     void Update() {
         if (!isEventActive) return;
-        if (Input.GetKeyDown(KeyCode.Space)) breathSlider.value += 15f;
-        breathSlider.value -= 10f * Time.deltaTime;
-        if (breathSlider.value <= 0 || breathSlider.value >= 100) { isEventActive = false; inkPanel.SetActive(false); }
+        if (Input.GetKeyDown(KeyCode.Space) && breathSlider != null) breathSlider.value += 15f;
+        if (breathSlider != null) {
+            breathSlider.value -= 10f * Time.deltaTime;
+            if (breathSlider.value <= 0 || breathSlider.value >= 100) InkCleared();
+        }
     }
-
-    public void InkCleared() { isEventActive = false; inkPanel.SetActive(false); }
 }

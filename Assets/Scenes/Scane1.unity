@@ -375,8 +375,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 10
-  m_fontSizeBase: 10
+  m_fontSize: 6
+  m_fontSizeBase: 6
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -594,6 +594,7 @@ MonoBehaviour:
   monologueNodes:
   - {fileID: 11400000, guid: 9e4d3c8bd82db2fffa20a521b03d9495, type: 2}
   - {fileID: 11400000, guid: 1a5804e05f8e8989e89230cd0cf97f86, type: 2}
+  - {fileID: 11400000, guid: b6203c056871b6e7888d2ccd3b9f36ec, type: 2}
   typingSpeed: 0.1
   hidingSpeed: 0.08
 --- !u!1 &721203593
