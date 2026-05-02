@@ -12,7 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8874284a5cf25af9b05fd7b27c18148, type: 3}
   m_Name: Dialog3
   m_EditorClassIdentifier: 
-  thoughtText: "\"Gardiyan her gece saat 03:14'te koridorun sonundaki \u0131\u015F\u0131\u011F\u0131
-    s\xF6nd\xFCr\xFCyor. O an, karanl\u0131\u011F\u0131n en koyu oldu\u011Fu o 10
-    saniye... Benim tek \u015Fans\u0131m. Yasalar\u0131 ben yazd\u0131m, a\xE7\u0131klar\u0131n\u0131
-    da en iyi ben bilirim"
+  thoughtText: "2.D\xFCnya Sava\u015F\u0131n\u0131n sonunda can buldu\u011Fum topraklar "

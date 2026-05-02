@@ -12,8 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8874284a5cf25af9b05fd7b27c18148, type: 3}
   m_Name: Dialog4
   m_EditorClassIdentifier: 
-  thoughtText: "\"Kalbim yine h\u0131zlan\u0131yor. Ne zaman \xF6zg\xFCrl\xFC\u011F\xFC
-    d\xFC\u015F\xFCnsem, v\xFCcudum bir ihanet haz\u0131rl\u0131\u011F\u0131na giri\u015Fiyor.
-    Bo\u011Faz\u0131m kuruyor, ellerim zang\u0131r zang\u0131r titriyor. Sanki bu
-    h\xFCcreden \xE7\u0131kmak, evrene s\xF6yledi\u011Fim en b\xFCy\xFCk yalanm\u0131\u015F
-    gibi.\""
+  thoughtText: "Bir anda ister yak\u0131n\u0131n\u0131z olsun ister uza\u011F\u0131n\u0131z; "

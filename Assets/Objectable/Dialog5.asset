@@ -12,7 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8874284a5cf25af9b05fd7b27c18148, type: 3}
   m_Name: Dialog5
   m_EditorClassIdentifier: 
-  thoughtText: "\"Cebimde saklad\u0131\u011F\u0131m bu pasl\u0131 metal par\xE7as\u0131...
-    Bir anahtar de\u011Fil belki ama bir kap\u0131y\u0131 aralamaya yeter. D\u0131\u015Far\u0131da
-    ne oldu\u011Funu bilmiyorum ama burada kal\u0131rsam, o m\xFCrekkep lekeleri
-    beni tamamen yutacak.\""
+  thoughtText: " sizi yol ayr\u0131ma s\xFCr\xFCkleyen her her kimse ya da kimlerse\n"

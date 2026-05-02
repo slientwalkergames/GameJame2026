@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8874284a5cf25af9b05fd7b27c18148, type: 3}
   m_Name: Dialog1
   m_EditorClassIdentifier: 
-  thoughtText: "\"Bu h\xFCcre... Duvarlar\u0131 so\u011Fuk, havas\u0131 ise bayat
-    bir su\xE7luluk kokuyor. Ama kimin su\xE7u? Benim mi, yoksa beni buraya atanlar\u0131n
-    m\u0131? Hat\u0131rlayam\u0131yorum.\""
+  thoughtText: "Kozan\u0131zdan \xE7\u0131k\u0131nca ya\u015Fam; sizi kucaklar ve
+    zamans\u0131z \n"
