@@ -2,11 +2,18 @@ using UnityEngine;
 
 public class InkCollision : MonoBehaviour
 {
-    public ParticleSystem poolSystem; // Yerdeki göl sistemi
+    // Prefab içindeki referans yerine, sahnedeki gölü bulalım
+    private ParticleSystem poolSystem;
+
+    void Start()
+    {
+        // Sahnedeki göl objesini isminden bul
+        GameObject poolObj = GameObject.Find("InkPoolSystem"); 
+        if(poolObj != null) poolSystem = poolObj.GetComponent<ParticleSystem>();
+    }
 
     void OnParticleCollision(GameObject other)
     {
-        // Parçacık yere değdiğinde göl sistemini tetikle
-        poolSystem.Emit(1);
+        if (poolSystem != null) poolSystem.Emit(1);
     }
 }

@@ -1,35 +1,35 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class InkManager : MonoBehaviour
 {
     public static InkManager Instance;
-    public GameObject inkPanel;
-    public Slider breathSlider;
-    public bool isEventActive = false;
 
-    private void Awake() { Instance = this; inkPanel.SetActive(false); }
+    [Header("Mürekkep Prefabları")]
+    public GameObject dripPrefab; // Drip Prefab'ını buraya sürükle
+    public GameObject poolPrefab; // Pool Prefab'ını buraya sürükle
 
-    public void StartInkEvent(int index = 0)
+    private GameObject activeDrip;
+    private GameObject activePool;
+
+    private void Awake() { Instance = this; }
+
+    public void StartInkEvent()
     {
-        isEventActive = true;
-        inkPanel.SetActive(true);
-        breathSlider.value = 50f; // Boğulma hatasını engelle
+        // Eğer zaten varsa önce onları temizle
+        if (activeDrip != null) Destroy(activeDrip);
+        if (activePool != null) Destroy(activePool);
+
+        // Prefabları sahnede oluştur (Spawn et)
+        activeDrip = Instantiate(dripPrefab, Vector3.zero, Quaternion.identity);
+        activePool = Instantiate(poolPrefab, Vector3.zero, Quaternion.identity);
         
-        // Sahnedeki InkSystem scriptini bul ve tetikle
-        FindObjectOfType<InkSystem>().StartInkCrisis(index);
+        Debug.Log("Mürekkep efektleri spawn edildi!");
     }
 
-    private void Update()
+    public void InkCleared()
     {
-        if (!isEventActive) return;
-        
-        if (Input.GetKeyDown(KeyCode.Space)) breathSlider.value += 15f;
-        breathSlider.value -= 10f * Time.deltaTime;
-
-        if (breathSlider.value <= 0 || breathSlider.value >= 100) FailEvent();
+        // Kriz bitince yok et
+        if (activeDrip != null) Destroy(activeDrip);
+        if (activePool != null) Destroy(activePool);
     }
-
-    public void InkCleared() { isEventActive = false; inkPanel.SetActive(false); }
-    private void FailEvent() { isEventActive = false; inkPanel.SetActive(false); Debug.Log("BOĞULDU!"); }
 }

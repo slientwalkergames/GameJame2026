@@ -76,9 +76,8 @@ public class QTEManager : MonoBehaviour
     {
         isQTEActive = false;
         qtePanel.SetActive(false);
-        Debug.Log("QTE BAŞARISIZ! Mürekkep krizi başlıyor...");
         
-        // QTE başarısız olursa mürekkep krizini başlat!
+        // QTE başarısız oldu, mürekkebi başlat!
         InkManager.Instance.StartInkEvent();
         
         TensionManager.Instance.IncreaseTension(pendingTension);
