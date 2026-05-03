@@ -156,9 +156,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 1370
-        height: 1148
+        y: 575
+        width: 454
+        height: 573
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,11 +173,121 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: ChatGPT Image 3 May 2026 00_44_53_1
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 575
+        width: 454
+        height: 573
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 097e95a3ad8dec7acad81d472f7f4b3e
+      internalID: -1356246748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChatGPT Image 3 May 2026 00_44_53_2
+      rect:
+        serializedVersion: 2
+        x: 908
+        y: 575
+        width: 454
+        height: 573
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 379e426156bedf7cb96adbf393dc2fb7
+      internalID: -1723305884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChatGPT Image 3 May 2026 00_44_53_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2
+        width: 454
+        height: 573
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54cdcaa46b0b222679d4f70b4e5c90d5
+      internalID: 504031304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChatGPT Image 3 May 2026 00_44_53_4
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 2
+        width: 454
+        height: 573
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f47b617f6ddbb60a9930ec4703f5df5
+      internalID: 117278486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChatGPT Image 3 May 2026 00_44_53_5
+      rect:
+        serializedVersion: 2
+        x: 908
+        y: 2
+        width: 454
+        height: 573
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd0e33571bb1bbda5bbcad0e2a157601
+      internalID: 963317019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 4ab83dc5fa940bd259f40c1c290137f1
     internalID: 0
     vertices: []
     indices: 
@@ -188,6 +298,11 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       ChatGPT Image 3 May 2026 00_44_53_0: -8461427463202543489
+      ChatGPT Image 3 May 2026 00_44_53_1: -1356246748
+      ChatGPT Image 3 May 2026 00_44_53_2: -1723305884
+      ChatGPT Image 3 May 2026 00_44_53_3: 504031304
+      ChatGPT Image 3 May 2026 00_44_53_4: 117278486
+      ChatGPT Image 3 May 2026 00_44_53_5: 963317019
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97ff3587c2a51572baf100468648d62a, type: 3}
+  m_Name: 1
+  m_EditorClassIdentifier: 
+  speakerName: 'Gardiyan '
+  dialogueText: "\u201CDur! Sen... Sen o \u2018Hain Avukat\u2019 \u2018Elias\u2019\u0131n\u2019
+    Senin \xF6ld\xFC\u011F\xFCn\xFC s\xF6ylemi\u015Flerdi. Burada ne\nar\u0131yorsun?\u201D"
+  choices:
+  - choiceText: "Elias \u201CBen o de\u011Filim, yan\u0131l\u0131yorsun.\u201D "
+    nextNode: {fileID: 11400000, guid: 94e3444ed444cb9c2bdb7228077ddabf, type: 2}
+    isLie: 1
+    tensionIncreaseAmount: 25
+    triggersInkEvent: 0
+    isFinalChoice: 0
+  - choiceText: "Evet, benim. Beni vuracak m\u0131s\u0131n?"
+    nextNode: {fileID: 11400000, guid: 94e3444ed444cb9c2bdb7228077ddabf, type: 2}
+    isLie: 0
+    tensionIncreaseAmount: 0
+    triggersInkEvent: 0
+    isFinalChoice: 0

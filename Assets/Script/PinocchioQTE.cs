@@ -6,30 +6,41 @@ using System.Collections;
 public class PinocchioQTE : MonoBehaviour {
     public static PinocchioQTE Instance;
 
+    [System.Serializable]
+    public struct SemptomAyari {
+        public string semptomAdi; // Inspector'da kolay yönetim için
+        public Sprite ikon;       // El çizimi görselin
+        [TextArea(3, 10)] 
+        public string talimatMesaji; // Buraya yazdığın metin ekranda çıkacak
+        public AudioClip baslangicSesi;
+    }
+
+    [Header("QTE Durum Ayarları")]
+    public SemptomAyari[] semptomListesi = new SemptomAyari[6];
+
     [Header("UI Referansları")]
     public GameObject qtePanel;
+    public TextMeshProUGUI instructionText; // Ekranda metni gösterecek olan obje
+    public Image semptomIcon; 
     public TextMeshProUGUI countdownText;
-    public TextMeshProUGUI instructionText;
-    public Image semptomIcon;
-    public Image greenZone;
-    public RectTransform needle;
-    public RectTransform twitchTarget;
-    public CanvasGroup sweatOverlay;
-
-    [Header("Assetler (0:Hiccup, 1:Stutter, 2:Sweat, 3:Twitch, 4:Breath, 5:Tremble)")]
-    public Sprite[] symptomSprites;
-    public AudioClip[] startSounds;
-    public AudioSource audioSource;
 
     private bool isQTEActive = false;
     private float currentPenalty;
 
-    private void Awake() { Instance = this; qtePanel.SetActive(false); }
+    private void Awake() { 
+        Instance = this; 
+        if(qtePanel) qtePanel.SetActive(false); 
+    }
 
     public void TriggerRandomEvent(float penalty) {
         if (isQTEActive) return;
         currentPenalty = penalty;
-        float diff = 1f + (TensionManager.Instance.currentTension / 100f);
+        
+        float diff = 1f;
+        if(TensionManager.Instance != null) {
+            diff = 1f + (TensionManager.Instance.currentTension / 100f);
+        }
+
         int index = Random.Range(0, 6); 
         StopAllCoroutines();
         StartCoroutine(RunQTE(index, diff));
@@ -38,81 +49,81 @@ public class PinocchioQTE : MonoBehaviour {
     IEnumerator RunQTE(int index, float d) {
         isQTEActive = true;
         qtePanel.SetActive(true);
-        ResetUI();
-
-        // Assetleri Yükle
-        semptomIcon.sprite = symptomSprites[index];
-        if (audioSource && startSounds[index]) audioSource.PlayOneShot(startSounds[index]);
-
-        float timer = 3.0f / d; // Zorluğa göre süre (3 saniye baz)
         
+        // ZORLAMA: Paneli hiyerarşide en alta (en öne) al
+        qtePanel.transform.SetAsLastSibling(); 
+
+        if (index < semptomListesi.Length) {
+    SemptomAyari ayar = semptomListesi[index];
+    
+    if(semptomIcon) semptomIcon.sprite = ayar.ikon;
+    
+    if(instructionText) {
+        // 1. ÖNCE AYARLARI YAP
+        instructionText.enableWordWrapping = false; // Yazıyı yanlara yayar
+        instructionText.enableAutoSizing = false;   // Küçük kalmasını engellemek için bunu kapattık
+        instructionText.fontSize = 50;              // Yazı boyutunu buraya elinle gir (Örn: 50)
+        instructionText.alignment = TextAlignmentOptions.Center;
+
+        // 2. MESAJI YAZ
+        instructionText.text = ayar.talimatMesaji;
+        instructionText.gameObject.SetActive(true);
+    }
+    
+    AudioSource audio = GetComponent<AudioSource>();
+    if (audio && ayar.baslangicSesi) audio.PlayOneShot(ayar.baslangicSesi);
+}
+        
+        StartCoroutine(AnimateIcon(index));
+
+        float timer = 3.0f / d;
         while (timer > 0) {
             timer -= Time.deltaTime;
-            countdownText.text = timer.ToString("F1");
-            countdownText.color = timer < 1f ? Color.red : Color.white;
+            if(countdownText) countdownText.text = timer.ToString("F1");
 
-            switch (index) {
-                case 0: // HIÇKIRIK (Zamanlama)
-                    instructionText.text = "TAM ZAMANINDA [SPACE]";
-                    float move = Mathf.PingPong(Time.time * 2f * d, 1f);
-                    needle.anchorMin = new Vector2(move, 0.5f);
-                    needle.anchorMax = new Vector2(move, 0.5f);
-                    if (Input.GetKeyDown(KeyCode.Space)) {
-                        if (move > 0.4f && move < 0.6f) Success(); else Fail();
-                        yield break;
-                    }
-                    break;
-
-                case 1: // KEKELEME (Hızlı Basma)
-                    instructionText.text = "KELİMEYİ TOPLA [E]";
-                    if (Input.GetKeyDown(KeyCode.E)) { Success(); yield break; }
-                    break;
-
-                case 2: // TERLEME (Fare Sallama)
-                    instructionText.text = "TERİ SİL [FARE SALLA]";
-                    sweatOverlay.gameObject.SetActive(true);
-                    if (Input.GetAxis("Mouse X") > 0.8f || Input.GetAxis("Mouse Y") > 0.8f) { Success(); yield break; }
-                    break;
-
-                case 3: // GÖZ SEYİRMESİ (Odak)
-                    instructionText.text = "HEDEFE TIKLA";
-                    twitchTarget.gameObject.SetActive(true);
-                    // Hedef rastgele kaçsın
-                    twitchTarget.anchoredPosition = new Vector2(Mathf.Sin(Time.time * 5f) * 200f, Mathf.Cos(Time.time * 3f) * 100f);
-                    if (Input.GetMouseButtonDown(0)) {
-                        if (Vector2.Distance(Input.mousePosition, twitchTarget.position) < 100f) { Success(); yield break; }
-                    }
-                    break;
-
-                case 4: // NEFES (Tutma)
-                    instructionText.text = "NEFESİNİ TUT [SPACE BASILI]";
-                    if (Input.GetKey(KeyCode.Space) && timer < 0.2f) { Success(); yield break; }
-                    break;
-
-                case 5: // TİTREME (Denge)
-                    instructionText.text = "DENGEDE KAL [A-D]";
-                    greenZone.gameObject.SetActive(true);
-                    float balance = Mathf.PingPong(Time.time * d, 1f);
-                    needle.anchorMin = new Vector2(balance, 0.5f);
-                    needle.anchorMax = new Vector2(balance, 0.5f);
-                    if (Input.GetKey(KeyCode.A)) balance -= 0.1f;
-                    if (Input.GetKey(KeyCode.D)) balance += 0.1f;
-                    if (timer < 0.1f) { Success(); yield break; }
-                    break;
-            }
+            HandleMechanics(index);
             yield return null;
         }
         Fail();
     }
 
-    void ResetUI() {
-        greenZone.gameObject.SetActive(false);
-        needle.gameObject.SetActive(true);
-        twitchTarget.gameObject.SetActive(false);
-        sweatOverlay.gameObject.SetActive(false);
-        sweatOverlay.alpha = 1;
+    void HandleMechanics(int index) {
+        // Tuş kontrolleri
+        switch (index) {
+            case 0: if (Input.GetKeyDown(KeyCode.Space)) Success(); break;
+            case 1: if (Input.GetKeyDown(KeyCode.E)) Success(); break;
+            case 2: if (Mathf.Abs(Input.GetAxis("Mouse X")) > 0.7f) Success(); break;
+            case 3: if (Input.GetMouseButtonDown(0)) Success(); break;
+            case 4: if (Input.GetKey(KeyCode.Space)) Success(); break; 
+            case 5: if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D)) Success(); break;
+        }
     }
 
-    void Success() { qtePanel.SetActive(false); isQTEActive = false; TensionManager.Instance.IncreaseTension(2f); }
-    void Fail() { qtePanel.SetActive(false); isQTEActive = false; TensionManager.Instance.IncreaseTension(currentPenalty); PinocchioManager.Instance.TriggerReaction(); }
+    IEnumerator AnimateIcon(int index) {
+        if(!semptomIcon) yield break;
+        RectTransform rect = semptomIcon.GetComponent<RectTransform>();
+        Vector2 startPos = rect.anchoredPosition; 
+
+        while (isQTEActive) {
+            if (index == 5 || index == 1) // Sarsıntı
+                rect.anchoredPosition = startPos + Random.insideUnitCircle * 8f;
+            yield return null;
+        }
+        rect.anchoredPosition = startPos;
+    }
+
+    void Success() { 
+        isQTEActive = false; 
+        qtePanel.SetActive(false); 
+        if(TensionManager.Instance) TensionManager.Instance.IncreaseTension(3f); 
+        StopAllCoroutines(); 
+    }
+
+    void Fail() { 
+        isQTEActive = false; 
+        qtePanel.SetActive(false); 
+        if(TensionManager.Instance) TensionManager.Instance.IncreaseTension(currentPenalty); 
+        if(PinocchioManager.Instance) PinocchioManager.Instance.TriggerReaction(); 
+        StopAllCoroutines(); 
+    }
 }
