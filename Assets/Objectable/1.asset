@@ -22,9 +22,11 @@ MonoBehaviour:
     tensionIncreaseAmount: 25
     triggersInkEvent: 0
     isFinalChoice: 0
+    targetSceneName: 2
   - choiceText: "Evet, benim. Beni vuracak m\u0131s\u0131n?"
     nextNode: {fileID: 11400000, guid: 94e3444ed444cb9c2bdb7228077ddabf, type: 2}
     isLie: 0
     tensionIncreaseAmount: 0
     triggersInkEvent: 0
     isFinalChoice: 0
+    targetSceneName: 

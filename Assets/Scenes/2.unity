@@ -744,8 +744,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -75}
-  m_SizeDelta: {x: 210, y: 310}
+  m_AnchoredPosition: {x: 664.6, y: -75}
+  m_SizeDelta: {x: 230, y: 310}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &115671932
 MonoBehaviour:
@@ -1513,14 +1513,14 @@ RectTransform:
   m_GameObject: {fileID: 362293151}
   m_LocalRotation: {x: -0, y: -0.9961947, z: 0, w: -0.08715578}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1778768091}
   m_LocalEulerAnglesHint: {x: 0, y: -190, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 390, y: -142}
+  m_AnchoredPosition: {x: 429.81, y: -142}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &362293153
@@ -2273,7 +2273,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -600, y: -75}
-  m_SizeDelta: {x: 210, y: 310}
+  m_SizeDelta: {x: 230, y: 310}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &570880905
 MonoBehaviour:
@@ -3835,7 +3835,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 0.19607843}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.19607843}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4730,7 +4730,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 0.11764706}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.11764706}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5198,41 +5198,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2ef7d28192fb60debe7ff8ddc5c32d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  semptomListesi:
-  - semptomAdi: "H\u0131\xE7k\u0131r\u0131k"
-    ikon: {fileID: -855298285791758126, guid: 253f1aa718e9af572a963f09d2bfd88f, type: 3}
-    talimatMesaji: "<b>AN\u0130 SPAZM!</b>\\nDiyafram\u0131n\u0131 kontrol et ve
-      sessiz kal.\\n[SPACE] TU\u015EUNA BAS"
-    baslangicSesi: {fileID: 8300000, guid: 5de2355f2ffc9cc1e97038fb2b46968e, type: 3}
-  - semptomAdi: Kekeleme
-    ikon: {fileID: 2714453574471835212, guid: d0cb3cd82a53c6c24b5fbd721f63810b, type: 3}
-    talimatMesaji: "<b>D\u0130L\u0130N TUTULUYOR!</b>\\nKelimeleri toparla ve c\xFCmleyi
-      tamamla.\\n[E] TU\u015EUNA HIZLICA BAS"
-    baslangicSesi: {fileID: 8300000, guid: 29bcfdac11f38039e82067ab8fd16c39, type: 3}
-  - semptomAdi: Terleme
-    ikon: {fileID: -345340437227008910, guid: b27dba029b7372d6cb919a5960a1774e, type: 3}
-    talimatMesaji: "<b>SO\u011EUK TERLEME!</b>\\nAln\u0131ndaki kan\u0131tlar\u0131
-      sil, \u015F\xFCpheli g\xF6r\xFCn\xFCyorsun.\\nFAREY\u0130 SALLA"
-    baslangicSesi: {fileID: 8300000, guid: d522620362e0a714fa080ed5fa50a218, type: 3}
-  - semptomAdi: "G\xF6z Se\u011Firmesi"
-    ikon: {fileID: 3326971659086699885, guid: c2b9b1a992de5dec6bb6e6317b4e59f4, type: 3}
-    talimatMesaji: "<b>G\xD6Z SE\u011E\u0130RMES\u0130!</b>\\nBak\u0131\u015Flar\u0131n\u0131
-      sabit tut ve gard\u0131n\u0131 d\xFC\u015F\xFCrme.\\nEKRANA TIKLA"
-    baslangicSesi: {fileID: 8300000, guid: 3129f7b618c56d9c59c1c54f4ea7b47a, type: 3}
-  - semptomAdi: "Nefes Darl\u0131\u011F\u0131"
-    ikon: {fileID: 5986244224761071404, guid: 294d1190c3cccc8688b2d9800f6cdc8e, type: 3}
-    talimatMesaji: "<b>NEFES DARLI\u011EI!</b>\\nCi\u011Ferlerini zapt et ve ci\u011Ferlerine
-      hakim ol.\\n[SPACE] BASILI TUT"
-    baslangicSesi: {fileID: 8300000, guid: d522620362e0a714fa080ed5fa50a218, type: 3}
-  - semptomAdi: Titreme
-    ikon: {fileID: 8459777460899806319, guid: f3a2fff60d6ac51689408708128a4060, type: 3}
-    talimatMesaji: ": <b>ELLER\u0130N T\u0130TR\u0130YOR!</b>\\nEllerini masan\u0131n
-      alt\u0131nda gizle ve sabit dur.\\n[A] ve [D] TU\u015ELARINA BAS"
-    baslangicSesi: {fileID: 8300000, guid: 89ed4cc9f7ebfb056bd9c15d68d9941b, type: 3}
   qtePanel: {fileID: 1083429514}
+  countdownText: {fileID: 45596274}
   instructionText: {fileID: 548679005}
   semptomIcon: {fileID: 564284578}
-  countdownText: {fileID: 45596274}
+  greenZone: {fileID: 124752069}
+  needle: {fileID: 1299807449}
+  symptomSprites:
+  - {fileID: -855298285791758126, guid: 253f1aa718e9af572a963f09d2bfd88f, type: 3}
+  - {fileID: 2714453574471835212, guid: d0cb3cd82a53c6c24b5fbd721f63810b, type: 3}
+  - {fileID: -345340437227008910, guid: b27dba029b7372d6cb919a5960a1774e, type: 3}
+  - {fileID: 3326971659086699885, guid: c2b9b1a992de5dec6bb6e6317b4e59f4, type: 3}
+  - {fileID: 5986244224761071404, guid: 294d1190c3cccc8688b2d9800f6cdc8e, type: 3}
+  - {fileID: 8459777460899806319, guid: f3a2fff60d6ac51689408708128a4060, type: 3}
+  startSounds:
+  - {fileID: 8300000, guid: 3129f7b618c56d9c59c1c54f4ea7b47a, type: 3}
+  - {fileID: 8300000, guid: 29bcfdac11f38039e82067ab8fd16c39, type: 3}
+  - {fileID: 8300000, guid: 5de2355f2ffc9cc1e97038fb2b46968e, type: 3}
+  - {fileID: 8300000, guid: d522620362e0a714fa080ed5fa50a218, type: 3}
+  - {fileID: 8300000, guid: 89ed4cc9f7ebfb056bd9c15d68d9941b, type: 3}
+  audioSource: {fileID: 1625105447}
 --- !u!114 &1625105443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5259,10 +5244,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fee6ea27fedd511a968c31ad738a8ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tensionSlider: {fileID: 74628887}
-  screenVignette: {fileID: 1385891076}
   currentTension: 0
   maxTension: 100
+  gameOverSceneName: GameOver
+  tensionSlider: {fileID: 74628887}
+  screenVignette: {fileID: 1385891076}
 --- !u!114 &1625105445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5962,7 +5948,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2146352587
 RectTransform:
   m_ObjectHideFlags: 0

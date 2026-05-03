@@ -21,9 +21,11 @@ MonoBehaviour:
     tensionIncreaseAmount: 0
     triggersInkEvent: 0
     isFinalChoice: 0
+    targetSceneName: 5
   - choiceText: "Her panikleyen su\xE7lu oldu\u011Fu i\xE7in mi panikler?"
     nextNode: {fileID: 11400000, guid: 12c41452d54bc7f3eb4632047432d48c, type: 2}
     isLie: 0
     tensionIncreaseAmount: 0
     triggersInkEvent: 0
     isFinalChoice: 0
+    targetSceneName: 

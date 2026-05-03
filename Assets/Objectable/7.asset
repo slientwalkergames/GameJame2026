@@ -23,3 +23,4 @@ MonoBehaviour:
     tensionIncreaseAmount: 25
     triggersInkEvent: 0
     isFinalChoice: 0
+    targetSceneName: 8

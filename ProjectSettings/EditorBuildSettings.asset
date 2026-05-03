@@ -11,6 +11,30 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Scane1.unity
     guid: d47066c6939696bfab481ac3f617113e
+  - enabled: 1
+    path: Assets/Scenes/GmeOver.unity
+    guid: 4d0740337ba163c869587a600d437729
+  - enabled: 1
+    path: Assets/Scenes/2.unity
+    guid: b85cc8c044a8dd741ab4b9f6e4eae858
+  - enabled: 1
+    path: Assets/Scenes/3.unity
+    guid: e7cab6780cb70ff48ba5461c50c8e76a
+  - enabled: 1
+    path: Assets/Scenes/4.unity
+    guid: 311de578a8afa52d8817c95f17773794
+  - enabled: 1
+    path: Assets/Scenes/5.unity
+    guid: dc828198607e296cf86b7cf53448f9a0
+  - enabled: 1
+    path: Assets/Scenes/6.unity
+    guid: e5dc8a29c36a49629bdc3cc010ec9f77
+  - enabled: 1
+    path: Assets/Scenes/7.unity
+    guid: 93b9233390d3f855b91ad6b2d5726476
+  - enabled: 1
+    path: Assets/Scenes/8.unity
+    guid: 835d5815ec7f1498ca41a098c63fcf10
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

@@ -22,9 +22,11 @@ MonoBehaviour:
     tensionIncreaseAmount: 25
     triggersInkEvent: 0
     isFinalChoice: 0
+    targetSceneName: 3
   - choiceText: "Neden i\xE7eri girdi\u011Fini s\xF6ylersen, belki seni hayatta tutar\u0131m! "
     nextNode: {fileID: 11400000, guid: 45443762510e8db3eb84e4cecd26a66c, type: 2}
     isLie: 0
     tensionIncreaseAmount: 0
     triggersInkEvent: 0
     isFinalChoice: 0
+    targetSceneName: 
