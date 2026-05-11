@@ -24,12 +24,14 @@ MonoBehaviour:
   - choiceText: "Sistemin hatal\u0131 oldu\u011Funu savun"
     nextNode: {fileID: 0}
     isLie: 0
-    tensionIncreaseAmount: 0
+    tensionIncreaseAmount: 9
     triggersInkEvent: 0
     isFinalChoice: 0
+    targetSceneName: 9
   - choiceText: "Hatas\u0131n\u0131 Kabul Et"
     nextNode: {fileID: 0}
     isLie: 0
-    tensionIncreaseAmount: 0
+    tensionIncreaseAmount: 9
     triggersInkEvent: 0
     isFinalChoice: 0
+    targetSceneName: 9

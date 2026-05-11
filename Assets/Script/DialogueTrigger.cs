@@ -2,11 +2,15 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    public DialogueNode startingNode;
-
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        // Oyun başlar başlamaz diyaloğu ekrana getirir
-        DialogueManager.Instance.StartDialogue(startingNode);
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 }

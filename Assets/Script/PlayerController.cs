@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour {
     }
 
     void Update() {
+        float xSiniri = Mathf.Clamp(transform.position.x, -8.5f, 8.5f); 
+transform.position = new Vector3(xSiniri, transform.position.y, transform.position.z);
         if (DialogueManager.Instance.dialoguePanel.activeInHierarchy || (PinocchioQTE.Instance && PinocchioQTE.Instance.qtePanel.activeInHierarchy)) {
             rb.linearVelocity = Vector2.zero;
             if(anim) anim.SetBool("isWalking", false);
